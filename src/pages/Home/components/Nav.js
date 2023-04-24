@@ -25,12 +25,13 @@ const Nav = () => {
   }
   let ignoreFirstRender;
   useEffect(() => {
+    ignoreFirstRender = false;
     if (!ignoreFirstRender) {
       let navStatus = toggleMenuMode();
       actionAfterClickNavToggle(navStatus);
     }
     return () => {
-      ignoreFirstRender = false;
+      ignoreFirstRender = true;
     };
   }, [navToggle]);
 
