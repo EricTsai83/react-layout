@@ -23,10 +23,15 @@ const Nav = () => {
     document.body.classList.toggle("nav-open");
     return document.body.classList.contains("nav-open");
   }
-
+  let ignoreFirstRender;
   useEffect(() => {
-    let navStatus = toggleMenuMode();
-    actionAfterClickNavToggle(navStatus);
+    if (!ignoreFirstRender) {
+      let navStatus = toggleMenuMode();
+      actionAfterClickNavToggle(navStatus);
+    }
+    return () => {
+      ignoreFirstRender = false;
+    };
   }, [navToggle]);
 
   return (
