@@ -25,19 +25,19 @@ const Nav = () => {
 
   useEffect(() => {
     let navStatus = toggleMenuMode();
-    if (navStatus === true) {
-      actionAfterClickNavToggle(navStatus);
-    }
-  }, []);
-
-  useEffect(() => {
-    let navStatus = toggleMenuMode();
     if (navToggle === true && navStatus === false) {
       actionAfterClickNavToggle(navStatus);
     } else if (navToggle === false && navStatus === true) {
       actionAfterClickNavToggle(navStatus);
     }
   }, [navToggle]);
+
+  useEffect(() => {
+    let navStatus = toggleMenuMode();
+    if (navStatus === true) {
+      actionAfterClickNavToggle(navStatus);
+    }
+  }, []);
 
   return (
     <nav className="nav">
