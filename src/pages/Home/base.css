@@ -107,6 +107,7 @@ body {
   width: 2em;
   height: 3px;
   background: var(--clr-dark);
+  transition: transform 300ms ease-in-out, opacity 200ms linear;
 }
 
 .hamburger::before,
@@ -250,7 +251,8 @@ body {
     justify-content: space-between;
   }
 
-  /* .nav-list {
+  /* 
+  .nav-list {
     background-color: transparent;
     display: flex;
     flex-direction: row;

@@ -1,12 +1,11 @@
-import {useState, useEffect, useRef} from "react";
+import {useState, useEffect} from "react";
 
 const Nav = () => {
   const [navToggle, setNavToggle] = useState(false);
 
   function actionAfterClickNavToggle(trigger) {
     if (trigger) {
-      document.querySelector(".nav-list").style.transition =
-        "transform 300ms cubic-bezier(.5, 0, .5, 1)";
+      document.querySelector(".nav-list").style.transition = "none";
       const hamburger = document.querySelector(".hamburger");
       hamburger.style.position = "fixed";
       hamburger.style.right = 0;
@@ -26,7 +25,11 @@ const Nav = () => {
 
   useEffect(() => {
     let navStatus = toggleMenuMode();
-    actionAfterClickNavToggle(navStatus);
+    if (navToggle === true && navStatus === false) {
+      actionAfterClickNavToggle(navStatus);
+    } else if (navToggle === false && navStatus === true) {
+      actionAfterClickNavToggle(navStatus);
+    }
   }, [navToggle]);
 
   return (
