@@ -1,0 +1,302 @@
+/* ================================= 
+  Base Element Styles
+==================================== */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+/* color variable*/
+:root {
+  --clr-primary: #ee6352;
+  --clr-dark: #333;
+  --clr-neutral: #ddd;
+  --clr-light: #fff;
+  --clr-light-green: #3acec2;
+  --clr-gray: #f0f0f0;
+}
+
+body {
+  font-family: "Varela Round", sans-serif;
+  line-height: 1.6;
+  color: #3a3a3a;
+  margin: 0;
+  /* Let the element which is out of the window be hidden */
+  overflow-x: hidden;
+}
+
+/* ================================= 
+  Base Layout Styles
+==================================== */
+/* ---- header container ---- */
+.header {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-content: center;
+  background-color: var(--clr-gray);
+}
+
+/* ---- name ---- */
+.name {
+  font-size: 24px;
+}
+
+.name a {
+  display: block;
+  padding: 10px 15px;
+  color: #323232;
+}
+
+/* ---- navigator ---- */
+.nav {
+  display: flex;
+  flex-direction: row;
+  background-color: transparent;
+}
+
+/* ---- side navigator ---- */
+/* .nav-list {
+  display: none;
+} */
+.nav-list {
+  background: var(--clr-light);
+  box-shadow: 0 0 3em rgba(0, 0, 0, .15);
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  /* overflow: scroll; */
+  padding: 1em 8em 1em 1em;
+  position: fixed;
+  right: 0;
+  transform: translateX(100%);
+  z-index: 9998;
+}
+
+.nav-item a {
+  color: #323232;
+}
+
+.nav-link {
+  text-decoration: none;
+  color: var(--clr-dark);
+}
+
+.nav-link:hover {
+  text-decoration: underline;
+  color: var(--clr-light-green);
+}
+
+/* ---- navigator's toggle ---- */
+.nav-toggle {
+  border: 0;
+  border-radius: .25em 0 0 .25em;
+  z-index: 9999;
+}
+
+/* toggle format (hamburger) */
+.hamburger {
+  display: block;
+  position: relative;
+}
+
+.hamburger,
+.hamburger::before,
+.hamburger::after {
+  width: 2em;
+  height: 3px;
+  background: var(--clr-dark);
+}
+
+.hamburger::before,
+.hamburger::after {
+  content: '';
+  position: absolute;
+  left: 0;
+}
+
+.hamburger::before {
+  bottom: 8px;
+}
+
+.hamburger::after {
+  top: 8px;
+}
+
+
+/* open styles for navigator's toggle*/
+
+.nav-open .nav-list {
+  transform: translateX(5%);
+}
+
+.nav-open .nav-toggle {
+  background-color: transparent;
+}
+
+
+.nav-open .hamburger {
+  background-color: transparent;
+
+}
+
+.nav-open .hamburger::before {
+  transform: translateY(8px) rotate(45deg);
+
+}
+
+.nav-open .hamburger::after {
+  transform: translateY(-8px) rotate(-45deg);
+}
+
+/* ---- banner ---- */
+.banner {
+  font-size: 30px;
+  text-align: center;
+  color: #323232;
+  background: #d5e1ef;
+  padding: 2em 0;
+  /* imply 60px padding in top and bottom */
+}
+
+/* --- title --- */
+.title {
+  text-align: center;
+  margin-top: 24px;
+  margin-bottom: 8px;
+}
+
+/* --- content --- */
+.box-container-1 {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  flex-wrap: wrap;
+  width: 100%;
+  max-width: 1200px;
+  margin: auto
+}
+
+.box1,
+.box2,
+.box3,
+.box4 {
+  font-size: 16px;
+  text-align: center;
+  background-color: #96a3b2;
+  width: 45%;
+  /* need to set smaller than 50%, because we need give margin some space */
+  height: 120px;
+  margin: 5px;
+}
+
+/* --- button --- */
+.button-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  margin: 10px 0px;
+
+}
+
+.submit-button {
+  border: none;
+  padding: 15px;
+  background-color: #e4f0fe;
+}
+
+
+.box-container-2 {
+  display: none;
+  flex-direction: row;
+  justify-content: center;
+  flex-wrap: wrap;
+  width: 100%;
+  max-width: 1200px;
+  margin: auto
+}
+
+
+.box5,
+.box6,
+.box7,
+.box8 {
+  font-size: 16px;
+  text-align: center;
+  background-color: #96a3b2;
+  width: 45%;
+  /* need to set smaller than 50%, because we need give margin some space */
+  height: 120px;
+  margin: 5px;
+}
+
+
+/* ================================= 
+  Media Queries
+==================================== */
+@media (min-width: 800px) {
+
+  /* Styles for screens larger than 800px */
+  .nav-toggle {
+    display: none
+  }
+
+  .nav-list {
+    all: unset;
+    background-color: transparent;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+  }
+
+  /* .nav-list {
+    background-color: transparent;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+  } */
+
+  .nav-item {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    padding-right: 20px;
+    margin-bottom: 0;
+    color: #323232;
+  }
+}
+
+
+@media (max-width: 500px) {
+
+  /* Styles for screens smaller than 500px */
+  .box-container-1 {
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+    width: 100%;
+  }
+
+  .box1,
+  .box2,
+  .box3,
+  .box4 {
+    width: 80%;
+  }
+
+  .box-container-2 {
+    flex-direction: column;
+    align-content: center;
+    width: 100%;
+  }
+
+  .box5,
+  .box6,
+  .box7,
+  .box8 {
+    width: 80%;
+  }
+}
