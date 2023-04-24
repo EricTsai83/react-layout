@@ -1,4 +1,4 @@
-import {useState, useEffect} from "react";
+import {useState, useEffect, useRef} from "react";
 
 const Nav = () => {
   const [navToggle, setNavToggle] = useState(false);
@@ -23,16 +23,10 @@ const Nav = () => {
     document.body.classList.toggle("nav-open");
     return document.body.classList.contains("nav-open");
   }
-  let ignoreFirstRender;
+
   useEffect(() => {
-    ignoreFirstRender = false;
-    if (!ignoreFirstRender) {
-      let navStatus = toggleMenuMode();
-      actionAfterClickNavToggle(navStatus);
-    }
-    return () => {
-      ignoreFirstRender = true;
-    };
+    let navStatus = toggleMenuMode();
+    actionAfterClickNavToggle(navStatus);
   }, [navToggle]);
 
   return (
