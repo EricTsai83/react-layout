@@ -1,29 +1,20 @@
 import {useEffect, useRef} from "react";
 
 const Nav = ({showSidebar, setShowSidebar}) => {
-  const effectRan = useRef(false);
+  const effectRan = useRef(true);
 
-  // add/remove class='nav-open' in the homepage-wrapper element if it did exist, otherwise remove it
-  // function toggleMenuMode(toggle) {
-  //   if (toggle === false) {
-  //     document.querySelector(".homepage-wrapper").classList.remove("nav-open");
-  //   } else {
-  //     document.querySelector(".homepage-wrapper").classList.add("nav-open");
-  //   }
-  // }
-  function toggleMenuMode() {
-    document.querySelector(".homepage-wrapper").classList.toggle("nav-open");
+  function toggleMenuMode(toggle) {
+    if (toggle) {
+      document.querySelector(".homepage-wrapper").classList.add("nav-open");
+      effectRan.current = !effectRan.current;
+    } else {
+      document.querySelector(".homepage-wrapper").classList.remove("nav-open");
+      effectRan.current = !effectRan.current;
+    }
   }
 
   useEffect(() => {
-    let ignoreFirstRender = false;
-    if (!ignoreFirstRender) {
-      toggleMenuMode();
-      // effectRan.current = !effectRan.current;
-    }
-    return () => {
-      ignoreFirstRender = true;
-    };
+    toggleMenuMode(effectRan.current);
   }, [showSidebar]);
 
   return (
