@@ -2,7 +2,7 @@ import {useState, useEffect, useRef} from "react";
 
 const Nav = () => {
   const [showSidebar, setShowSidebar] = useState(false);
-  const effectRan = useRef(true);
+  const effectRan = useRef(false);
   function toggleMenuMode(toggle) {
     if (toggle) {
       document.querySelector(".homepage-wrapper").classList.add("nav-open");
@@ -12,9 +12,14 @@ const Nav = () => {
   }
 
   useEffect(() => {
+    // let ignoreFirstRender = false;
+    // console.log(`ignoreFirstRender: ${ignoreFirstRender}`);
+    // if (ignoreFirstRender) {
+
     effectRan.current = !effectRan.current;
-    console.log(effectRan.current);
     toggleMenuMode(effectRan.current);
+    console.log(`effectRan.current:${effectRan.current}`);
+    // }
   }, [showSidebar]);
 
   return (
