@@ -1,13 +1,20 @@
-import {useEffect} from "react";
+import {useEffect, useRef} from "react";
 
 const Nav = ({showSidebar, setShowSidebar}) => {
-  function toggleMenuMode() {
-    // add/remove class='nav-open' in the homepage-wrapper element if it did exist, otherwise remove it
-    document.querySelector(".homepage-wrapper").classList.toggle("nav-open");
+  const effectRan = useRef(false);
+
+  // add/remove class='nav-open' in the homepage-wrapper element if it did exist, otherwise remove it
+  function toggleMenuMode(toggle) {
+    if (toggle === false) {
+      document.querySelector(".homepage-wrapper").classList.remove("nav-open");
+    } else {
+      document.querySelector(".homepage-wrapper").classList.add("nav-open");
+    }
   }
 
   useEffect(() => {
-    toggleMenuMode();
+    effectRan.current = !effectRan.current;
+    toggleMenuMode(effectRan.current);
   }, [showSidebar]);
 
   return (
