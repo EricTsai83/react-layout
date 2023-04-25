@@ -13,8 +13,14 @@ const Nav = ({showSidebar, setShowSidebar}) => {
   }
 
   useEffect(() => {
-    effectRan.current = !effectRan.current;
-    toggleMenuMode(effectRan.current);
+    let ignoreFirstRender = false;
+    if (!ignoreFirstRender) {
+      effectRan.current = !effectRan.current;
+      toggleMenuMode(effectRan.current);
+    }
+    return () => {
+      ignoreFirstRender = true;
+    };
   }, [showSidebar]);
 
   return (
