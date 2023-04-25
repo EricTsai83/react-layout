@@ -3,7 +3,6 @@ import {useEffect} from "react";
 const Sidebar = ({showSidebar, setShowSidebar}) => {
   useEffect(() => {
     if (showSidebar === false) {
-      console.log("123");
       document.querySelector(".side-bar-wrapper ").style.transform =
         "translateX(100%)";
     }

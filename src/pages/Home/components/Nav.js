@@ -3,7 +3,6 @@ import {useEffect} from "react";
 const Nav = ({showSidebar, setShowSidebar}) => {
   useEffect(() => {
     if (showSidebar === true) {
-      console.log("456");
       document.querySelector(".side-bar-wrapper ").style.transform =
         "translateX(5%)";
     }
