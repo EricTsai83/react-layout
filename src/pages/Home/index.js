@@ -7,11 +7,11 @@ import "./base.css";
 
 const Home = () => {
   const [showBox, setShowBox] = useState(false);
-
+  const [showSidebar, setShowSidebar] = useState(false);
   return (
     <div className="homepage-wrapper">
-      <Sidebar />
-      <Header />
+      <Sidebar showSidebar={showSidebar} setShowSidebar={setShowSidebar} />
+      <Header showSidebar={showSidebar} setShowSidebar={setShowSidebar} />
       <Main showBox={showBox} setShowBox={setShowBox} />
     </div>
   );

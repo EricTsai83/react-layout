@@ -1,25 +1,12 @@
-import {useState, useEffect, useRef} from "react";
+import {useEffect} from "react";
 
-const Nav = () => {
-  const [showSidebar, setShowSidebar] = useState(false);
-  const effectRan = useRef(false);
-  function toggleMenuMode(toggle) {
-    if (toggle) {
-      document.querySelector(".homepage-wrapper").classList.add("nav-open");
-    } else {
-      document.querySelector(".homepage-wrapper").classList.remove("nav-open");
-    }
-  }
-
+const Nav = ({showSidebar, setShowSidebar}) => {
   useEffect(() => {
-    // let ignoreFirstRender = false;
-    // console.log(`ignoreFirstRender: ${ignoreFirstRender}`);
-    // if (ignoreFirstRender) {
-
-    effectRan.current = !effectRan.current;
-    toggleMenuMode(effectRan.current);
-    console.log(`effectRan.current:${effectRan.current}`);
-    // }
+    if (showSidebar === true) {
+      console.log("456");
+      document.querySelector(".side-bar-wrapper ").style.transform =
+        "translateX(5%)";
+    }
   }, [showSidebar]);
 
   return (
