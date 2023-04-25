@@ -124,7 +124,6 @@ body {
 
 
 /* open styles for navigator's toggle*/
-
 .nav-open .side-bar {
   transform: translateX(5%);
 }
@@ -133,15 +132,12 @@ body {
   background-color: transparent;
 }
 
-
 .nav-open .hamburger {
   background-color: transparent;
-
 }
 
 .nav-open .hamburger::before {
   transform: translateY(8px) rotate(45deg);
-
 }
 
 .nav-open .hamburger::after {
