@@ -1,6 +1,6 @@
-const Button = ({showBoxStatus}) => {
+const Button = ({setShowBox}) => {
   const handleClick = () => {
-    showBoxStatus(function (prev) {
+    setShowBox(function (prev) {
       return !prev;
     });
   };

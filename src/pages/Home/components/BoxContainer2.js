@@ -1,6 +1,6 @@
-const BoxContainer2 = ({showBoxAttr}) => {
+const BoxContainer2 = ({showBox}) => {
   let displayAttr;
-  if (showBoxAttr === true) {
+  if (showBox === true) {
     displayAttr = "flex";
   } else {
     displayAttr = "none";

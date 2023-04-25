@@ -1,50 +1,21 @@
-import {useState, useEffect} from "react";
+import {useEffect} from "react";
 
-const Nav = () => {
-  const [navToggle, setNavToggle] = useState(false);
-
-  function actionAfterClickNavToggle(trigger) {
-    if (trigger) {
-      document.querySelector(".nav-list").style.transition = "none";
-      const hamburger = document.querySelector(".hamburger");
-      hamburger.style.position = "fixed";
-      hamburger.style.right = 0;
-    } else {
-      document.querySelector(".nav-list").style.transition = "none";
-      const hamburger = document.querySelector(".hamburger");
-      hamburger.style.position = "relative";
-      hamburger.style.right = "auto";
-    }
-  }
-
+const Nav = ({showSidebar, setShowSidebar}) => {
   function toggleMenuMode() {
-    // add class='nav-open' in the body element if it did exist, otherwise remove it
-    document.body.classList.toggle("nav-open");
-    return document.body.classList.contains("nav-open");
+    // add/remove class='nav-open' in the homepage-wrapper element if it did exist, otherwise remove it
+    document.querySelector(".homepage-wrapper").classList.toggle("nav-open");
   }
 
   useEffect(() => {
-    let navStatus = toggleMenuMode();
-    if (navToggle === true && navStatus === false) {
-      actionAfterClickNavToggle(navStatus);
-    } else if (navToggle === false && navStatus === true) {
-      actionAfterClickNavToggle(navStatus);
-    }
-  }, [navToggle]);
-
-  useEffect(() => {
-    let navStatus = toggleMenuMode();
-    if (navStatus === true) {
-      actionAfterClickNavToggle(navStatus);
-    }
-  }, []);
+    toggleMenuMode();
+  }, [showSidebar]);
 
   return (
     <nav className="nav">
       <button
         className="nav-toggle"
         onClick={() => {
-          setNavToggle(!navToggle);
+          setShowSidebar(!showSidebar);
         }}>
         <span id="hamburger-center-line" className="hamburger"></span>
       </button>

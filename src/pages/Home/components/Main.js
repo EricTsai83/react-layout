@@ -3,7 +3,7 @@ import BoxContainer1 from "./BoxContainer1";
 import Button from "./Button";
 import BoxContainer2 from "./BoxContainer2";
 
-const Main = ({showBoxAttr, showBoxStatus}) => {
+const Main = ({showBox, setShowBox}) => {
   return (
     <div>
       <Banner />
@@ -13,8 +13,8 @@ const Main = ({showBoxAttr, showBoxStatus}) => {
         </h2>
       </div>
       <BoxContainer1 />
-      <Button showBoxStatus={showBoxStatus} />
-      <BoxContainer2 showBoxAttr={showBoxAttr} />
+      <Button setShowBox={setShowBox} />
+      <BoxContainer2 showBox={showBox} />
     </div>
   );
 };

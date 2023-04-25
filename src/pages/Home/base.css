@@ -57,12 +57,9 @@ body {
 }
 
 /* ---- side navigator ---- */
-/* .nav-list {
-  display: none;
-} */
-.nav-list {
+.side-bar {
   background: var(--clr-light);
-  box-shadow: 0 0 3em rgba(0, 0, 0, .15);
+  box-shadow: 0 0 3em rgba(120, 27, 27, 0.15);
   display: flex;
   flex-direction: column;
   height: 100vh;
@@ -74,26 +71,24 @@ body {
   z-index: 9998;
 }
 
-.nav-item a {
+.side-bar-item a {
   color: #323232;
 }
 
-.nav-link {
-  text-decoration: none;
-  color: var(--clr-dark);
-}
-
-.nav-link:hover {
-  text-decoration: underline;
-  color: var(--clr-light-green);
+.nav-list {
+  display: none;
 }
 
 /* ---- navigator's toggle ---- */
 .nav-toggle {
-  border: 0;
+  width: 35px;
+  border: none;
   border-radius: .25em 0 0 .25em;
   z-index: 9999;
+  cursor: pointer;
 }
+
+
 
 /* toggle format (hamburger) */
 .hamburger {
@@ -104,10 +99,11 @@ body {
 .hamburger,
 .hamburger::before,
 .hamburger::after {
-  width: 2em;
+  width: 35px;
   height: 3px;
   background: var(--clr-dark);
   transition: transform 300ms ease-in-out, opacity 200ms linear;
+
 }
 
 .hamburger::before,
@@ -115,6 +111,7 @@ body {
   content: '';
   position: absolute;
   left: 0;
+
 }
 
 .hamburger::before {
@@ -128,7 +125,7 @@ body {
 
 /* open styles for navigator's toggle*/
 
-.nav-open .nav-list {
+.nav-open .side-bar {
   transform: translateX(5%);
 }
 
@@ -243,22 +240,13 @@ body {
     display: none
   }
 
+
   .nav-list {
-    all: unset;
-    background-color: transparent;
     display: flex;
+    background-color: transparent;
     flex-direction: row;
     justify-content: space-between;
   }
-
-  /* 
-  .nav-list {
-    background-color: transparent;
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    align-items: center;
-  } */
 
   .nav-item {
     display: flex;
@@ -269,6 +257,17 @@ body {
     margin-bottom: 0;
     color: #323232;
   }
+
+  .nav-link {
+    text-decoration: none;
+    color: var(--clr-dark);
+  }
+
+  .nav-link:hover {
+    text-decoration: underline;
+    color: var(--clr-light-green);
+  }
+
 }
 
 
