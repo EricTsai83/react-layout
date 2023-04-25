@@ -1,8 +1,8 @@
-import {useEffect, useRef} from "react";
+import {useState, useEffect, useRef} from "react";
 
-const Nav = ({showSidebar, setShowSidebar}) => {
+const Nav = () => {
+  const [showSidebar, setShowSidebar] = useState(false);
   const effectRan = useRef(true);
-
   function toggleMenuMode(toggle) {
     if (toggle) {
       document.querySelector(".homepage-wrapper").classList.add("nav-open");

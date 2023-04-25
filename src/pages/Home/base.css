@@ -230,6 +230,9 @@ body {
   Media Queries
 ==================================== */
 @media (min-width: 800px) {
+  .side-bar {
+    display: none;
+  }
 
   /* Styles for screens larger than 800px */
   .nav-toggle {
