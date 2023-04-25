@@ -1,6 +1,6 @@
 const Sidebar = () => {
   return (
-    <nav>
+    <nav className="side-bar-wrapper">
       <ul className="side-bar">
         <li className="side-bar-item">
           <a href="#1" className="nav-link">

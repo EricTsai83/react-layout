@@ -6,14 +6,14 @@ const Nav = () => {
   function toggleMenuMode(toggle) {
     if (toggle) {
       document.querySelector(".homepage-wrapper").classList.add("nav-open");
-      effectRan.current = !effectRan.current;
     } else {
       document.querySelector(".homepage-wrapper").classList.remove("nav-open");
-      effectRan.current = !effectRan.current;
     }
   }
 
   useEffect(() => {
+    effectRan.current = !effectRan.current;
+    console.log(effectRan.current);
     toggleMenuMode(effectRan.current);
   }, [showSidebar]);
 
